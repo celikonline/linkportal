@@ -1,0 +1,5 @@
+node_modules/
+.env
+*.log
+linkportal-yedek-*.json
+preview*.png
