@@ -20,14 +20,15 @@ Docker ve Docker Compose kuruluysa proje dizininde:
 docker compose up -d --build
 ```
 
-http://localhost:5186 adresini aç. Bu portta `npm start` zaten çalışıyorsa önce onu durdur veya farklı bir port seç. PowerShell örneği:
+Portal hem http://localhost:1010 hem de http://localhost:1011 adresinden açılır. İki port da aynı uygulamaya yönlenir; container içindeki port 5186 olarak kalır. Portları değiştirmek için PowerShell örneği:
 
 ```powershell
-$env:LINKPORTAL_PORT = '5187'
+$env:LINKPORTAL_PORT = '1012'
+$env:LINKPORTAL_ALT_PORT = '1013'
 docker compose up -d --build
 ```
 
-Bu durumda adres http://localhost:5187 olur. Kasa tarayıcıda adres ve porta bağlı tutulduğu için farklı porttaki veriler otomatik görünmez; şifreli yedek ile aktarabilirsin.
+Bu durumda adresler http://localhost:1012 ve http://localhost:1013 olur. Kasa tarayıcıda adres ve porta bağlı tutulduğu için farklı porttaki veriler otomatik görünmez; şifreli yedek ile aktarabilirsin. Düzenli kullanım için tek bir adres seç.
 
 ```sh
 docker compose logs -f
