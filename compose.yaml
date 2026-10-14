@@ -3,7 +3,6 @@ services:
     build: .
     ports:
       - "127.0.0.1:${LINKPORTAL_PORT:-1010}:5186"
-      - "127.0.0.1:${LINKPORTAL_ALT_PORT:-1011}:5186"
     restart: unless-stopped
     read_only: true
     init: true

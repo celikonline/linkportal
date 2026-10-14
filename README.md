@@ -20,15 +20,14 @@ Docker ve Docker Compose kuruluysa proje dizininde:
 docker compose up -d --build
 ```
 
-Portal hem http://localhost:1010 hem de http://localhost:1011 adresinden açılır. İki port da aynı uygulamaya yönlenir; container içindeki port 5186 olarak kalır. Portları değiştirmek için PowerShell örneği:
+Portal http://localhost:1010 adresinden açılır. Container içindeki port 5186 olarak kalır. Dış portu değiştirmek için PowerShell örneği:
 
 ```powershell
 $env:LINKPORTAL_PORT = '1012'
-$env:LINKPORTAL_ALT_PORT = '1013'
 docker compose up -d --build
 ```
 
-Bu durumda adresler http://localhost:1012 ve http://localhost:1013 olur. Kasa tarayıcıda adres ve porta bağlı tutulduğu için farklı porttaki veriler otomatik görünmez; şifreli yedek ile aktarabilirsin. Düzenli kullanım için tek bir adres seç.
+Bu durumda adres http://localhost:1012 olur. Kasa tarayıcıda adres ve porta bağlı tutulduğu için farklı porttaki veriler otomatik görünmez; şifreli yedek ile aktarabilirsin.
 
 ```sh
 docker compose logs -f
