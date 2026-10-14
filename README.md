@@ -12,6 +12,30 @@ npm start
 
 Tarayıcıda http://localhost:5186 adresini aç. İlk açılışta en az 12 karakterlik bir ana parola belirle. Örnek ürün linklerini değiştirebilir veya silebilirsin; örnek hesap/şifre bulunmaz.
 
+## Docker Compose ile çalıştırma
+
+Docker ve Docker Compose kuruluysa proje dizininde:
+
+```sh
+docker compose up -d --build
+```
+
+http://localhost:5186 adresini aç. Bu portta `npm start` zaten çalışıyorsa önce onu durdur veya farklı bir port seç. PowerShell örneği:
+
+```powershell
+$env:LINKPORTAL_PORT = '5187'
+docker compose up -d --build
+```
+
+Bu durumda adres http://localhost:5187 olur. Kasa tarayıcıda adres ve porta bağlı tutulduğu için farklı porttaki veriler otomatik görünmez; şifreli yedek ile aktarabilirsin.
+
+```sh
+docker compose logs -f
+docker compose down
+```
+
+Container yalnızca uygulama dosyalarını sunar; kasa tarayıcıda saklandığı için volume gerekmez. Container'ı kaldırmak tarayıcıdaki kasayı silmez. Container içinde sunucu `0.0.0.0` dinler; Compose portu bilgisayarın yalnızca `127.0.0.1` adresine açar.
+
 ## Özellikler
 
 - Ürün ve bağlantı ekleme, düzenleme, silme
@@ -28,7 +52,7 @@ Tarayıcıda http://localhost:5186 adresini aç. İlk açılışta en az 12 kara
 
 Kasa yalnızca kullanılan tarayıcının bu adresine ait yerel depolamasında tutulur. Cihazlar/tarayıcılar arasında otomatik eşitlenmez. Tarayıcı verileri silinirse kasa da silinir; düzenli olarak **Şifreli yedek indir** ile yedek al. Ana parola kaybolursa kurtarılamaz. Panoya kopyalanan bilgiler sistem panosunda kalabilir. Bu uygulama bağımsız güvenlik denetiminden geçmemiştir.
 
-Sunucu yalnızca 127.0.0.1 üzerinde statik uygulama dosyalarını sunar; şifreleri veya ana parolayı almaz. İnternete açılacaksa HTTPS gerekir. Aynı tarayıcıda iki sekme açıksa diğer sekmede kayıt değiştiğinde kasa yeniden kilitlenir.
+Yerel sunucu varsayılan olarak 127.0.0.1 üzerinde statik uygulama dosyalarını sunar; dinleme adresi `HOST` ortam değişkeniyle ayarlanabilir. Şifreleri veya ana parolayı almaz. İnternete açılacaksa HTTPS gerekir. Aynı tarayıcıda iki sekme açıksa diğer sekmede kayıt değiştiğinde kasa yeniden kilitlenir.
 
 ## Doğrulama
 
