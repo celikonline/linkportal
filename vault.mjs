@@ -39,3 +39,21 @@ export function validateData(data) {
     for (const a of p.accounts) if (!a || !['id', 'label', 'username', 'password'].every(k => typeof a[k] === 'string')) throw new Error('Geçersiz hesap kaydı.');
   }
 }
+
+export function normalizeAccounts(accounts) {
+  return accounts.map(account => ({ ...account, label: account.label || '', username: account.username.trim() }))
+    .filter(account => account.username || account.password)
+    .map(account => {
+      if (!account.username || !account.password) throw new Error('Eklediğin her hesap için kullanıcı adı ve şifreyi doldur.');
+      return account;
+    });
+}
+
+export function formatVaultText(data) {
+  validateData(data);
+  return data.products.map(product => [
+    product.name,
+    `Bağlantı: ${product.url}`,
+    ...product.accounts.map(account => `Kullanıcı adı: ${account.username}\nŞifre: ${account.password}`),
+  ].join('\n\n')).join('\n\n────────────\n\n');
+}

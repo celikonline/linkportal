@@ -194,3 +194,34 @@ form input::placeholder,form textarea::placeholder{color:#7f8da3}form input:focu
 .empty-state p{color:#8f9baa;font-size:12px}
 @media(max-width:850px){.note-link-line{gap:6px 10px}.note-actions{gap:3px}.note-line{font-size:12px;gap:8px}}
 @media(max-width:620px){.products-section{margin-top:22px}.note-line{flex-wrap:wrap;gap:5px 9px;padding:14px 0}.note-text{flex-basis:calc(100% - 24px)}.note-link-line{display:block}.note-name{display:block}.note-separator{display:none}.note-url{font-size:12px}.note-description{font-size:11px}.note-actions{margin-left:17px;gap:9px}.search{max-width:100%}.note-actions .account-button{font-size:11px}.note-actions .icon-button{min-height:30px;min-width:30px}}
+
+/* Encrypted vault sharing */
+#share-dialog{width:min(560px,calc(100vw - 32px));max-height:90dvh;overflow-y:auto}
+#share-dialog p{font-size:13px;line-height:1.65;color:inherit}
+#share-dialog .error{color:#f08d86}
+#share-dialog label{display:block;margin:16px 0}
+#share-dialog input,#share-dialog textarea{width:100%;margin-top:7px}
+#share-dialog .share-notice{padding:12px;background:#252d39;color:#c3cfde;border-radius:8px}
+#share-result{margin-top:18px}
+#share-link{word-break:break-all;resize:vertical;font-size:12px}
+[hidden]{display:none!important}
+
+/* Fast account entry and selective sharing */
+.account-fields-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;padding:12px}
+.account-fields-row .form-row{min-width:0;gap:10px}
+.account-fields-row label{margin:0;min-width:0}
+.account-fields-row .remove-account{align-self:center;margin-top:18px}
+.account-bulk-actions,.share-selection-actions{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.detail-product-url{display:block;color:#a6bddd;overflow-wrap:anywhere;text-decoration:underline}
+#share-selection{max-height:280px;overflow-y:auto;border:1px solid #3a4657;border-radius:7px;margin-top:14px}
+#share-selection:empty{display:none}
+.share-product{padding:12px;border-bottom:1px solid #3a4657}
+.share-product:last-child{border-bottom:0}
+#share-dialog .share-product-choice,#share-dialog .share-account-choice{display:flex;align-items:center;gap:10px;margin:0;cursor:pointer;font-size:13px;min-width:0}
+#share-dialog .share-account-choice{margin:11px 0 0 26px;font-weight:400}
+#share-dialog .share-product-choice span,#share-dialog .share-account-choice span{min-width:0;overflow-wrap:anywhere}
+#share-dialog .share-product-choice small{display:block;color:#a1aec0;font-weight:400;margin-top:4px;overflow-wrap:anywhere}
+#share-dialog #share-selection input{width:16px;height:16px;margin:0;flex-shrink:0;accent-color:#91b4e4}
+#share-selection-summary{font-size:12px!important;color:#b0c4df!important}
+#copy-plain-text{width:100%;resize:vertical;white-space:pre-wrap}
+@media(max-width:620px){.accounts-heading{align-items:flex-start;gap:10px}.account-fields-row .form-row{grid-template-columns:minmax(0,1fr);gap:10px}.account-fields-row .remove-account{align-self:start;margin-top:20px}.account-bulk-actions .button{flex:1}.share-selection-actions .button{flex:1}}

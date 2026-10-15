@@ -5,7 +5,7 @@ ENV NODE_ENV=production \
 
 WORKDIR /app
 
-COPY --chown=node:node package.json server.mjs index.html app.js vault.mjs style.css support.css ./
+COPY --chown=node:node package.json server.mjs index.html app.js vault.mjs share.mjs style.css support.css ./
 
 USER node
 EXPOSE 5186

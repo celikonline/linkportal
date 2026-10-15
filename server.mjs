@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 const root = path.dirname(fileURLToPath(import.meta.url));
 const host = process.env.HOST || '127.0.0.1';
-const files = { '/': 'index.html', '/app.js': 'app.js', '/vault.mjs': 'vault.mjs', '/style.css': 'style.css', '/support.css': 'support.css' };
+const files = { '/': 'index.html', '/app.js': 'app.js', '/vault.mjs': 'vault.mjs', '/share.mjs': 'share.mjs', '/style.css': 'style.css', '/support.css': 'support.css' };
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css' };
 http.createServer(async (req, res) => {
   const file = files[new URL(req.url, 'http://localhost').pathname];
